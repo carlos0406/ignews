@@ -1,34 +1,57 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<h1 align="center">< / >Ignews</h1>
+ olá 🙋‍♂️
+<p>Ignews é um blog onde usamos <a href="https://prismic.io/">Prismic CMS</a> para serviço para cadastrar as postagens
+[Stripe](https://stripe.com/br) como metodo de pagamento, e [FaunaDB](https://fauna.com/) para salvar os dados, além do nextjs para gerar posts do blog estaticamente
+</p>
 
-## Getting Started
+<div>
+  <img src="https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white" alt=""/>
+  <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt=""/>
+  <img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white" alt="">
+  <img src="https://img.shields.io/badge/Sass-CC6699?style=for-the-badge&logo=sass&logoColor=white" alt="">
+  <img src="https://img.shields.io/badge/Yarn-2C8EBB?style=for-the-badge&logo=yarn&logoColor=white" alt="">
+</div>
 
-First, run the development server:
+# Como usar?
+
+## Download e instalação
 
 ```bash
-npm run dev
-# or
-yarn dev
+# Clone este repositório
+$ git clone https://github.com/carlos0406/ignews.git ignews
+
+# Acesse a pasta do projeto no terminal/cmd
+$ cd ignews
+
+# Instale as dependências
+$ npm install ou yarn
+
+# Execute a aplicação em modo de desenvolvimento
+$ npm run dev ou yarn dev
+
+
+# O servidor inciará na porta:3000 -como endereco base: <http://localhost:3000>
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Variaveis Ambientes
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+O arquivo .env.local deve ser criado na raiz do projeto com as seguintes variaveis:
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+PRISMIC_ACCESS_TOKEN para poder acessar a API do prismic
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+PRISMIC_URL para poder acessar o endpoint referente ao seu projeto
 
-## Learn More
+## Configuracões do prismic
 
-To learn more about Next.js, take a look at the following resources:
+Dentro do prismic você deve criar um repositório
+com um custom type com o nome de "post"
+na aba JSON cole a estrutura disponivél no pastebin(não disponivel)
+na aba de configurações do seu repositório dentro do prismic você deve gerar a chave
+de acesso para a variavel PRISMIC_ACCESS_TOKEN e também copiar o endpoint para a variavel PRISMIC_URL
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Dentro da interface do prismic você pode criar
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+varios posts na interface Documents é importante copular algum
+ou alguns posts para poder ver o resultado do do site
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+# Prints do projeto
