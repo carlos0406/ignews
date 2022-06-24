@@ -25,6 +25,7 @@ const relevantEvents = new Set([
 ])
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method === 'POST') {
+    console.log('entrou no post')
     const buf = await buffer(req)
     const secret = req.headers['stripe-signature']
     let event: Stripe.Event
@@ -52,6 +53,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
             break
           case 'checkout.session.completed':
             const checkoutSession = event.data.object as Stripe.Checkout.Session
+            console.log('salvando subscription')
             await saveSubscription(
               checkoutSession.subscription.toString(),
               checkoutSession.customer.toString(),
