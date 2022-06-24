@@ -4,7 +4,6 @@ import { getPrismicClient } from '../../../services/prismic'
 import { RichText } from 'prismic-dom'
 import Head from 'next/head'
 import styles from '../post.module.scss'
-import { redirect } from 'next/dist/next-server/server/api-utils'
 import Link from 'next/link'
 import { useEffect } from 'react'
 import { useRouter } from 'next/router'
@@ -21,7 +20,7 @@ export default function PostPreview({ post }: PostPreviewProps) {
   const router = useRouter()
   useEffect(() => {
     if (session?.activeSubscription) {
-      router.push('/')
+      router.push('/post/' + post.slug)
     }
   }, [session])
   return (
