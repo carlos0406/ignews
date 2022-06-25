@@ -36,6 +36,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
         process.env.STRIPE_WEBHOOK_SECRET
       )
     } catch (error) {
+      console.log('erro ao construir event')
       return res.status(400).send(`webook erro ${error.message}`)
     }
 
