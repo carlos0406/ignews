@@ -40,31 +40,39 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     }
 
     const { type } = event
+    console.log(type)
+
     if (relevantEvents.has(type)) {
+      console.log('entrou no switch')
       try {
         switch (type) {
           case 'customer.subscription.updated':
           case 'customer.subscription.deleted':
             const subscription = event.data.object as Stripe.Subscription
+
             await saveSubscription(
               subscription.id,
-              subscription.customer.toString()
+              subscription.customer.toString(),
+              false
             )
+
             break
           case 'checkout.session.completed':
             const checkoutSession = event.data.object as Stripe.Checkout.Session
-            console.log('salvando subscription')
+
             await saveSubscription(
               checkoutSession.subscription.toString(),
               checkoutSession.customer.toString(),
               true
             )
+
             break
           default:
-            throw new Error('Unhandled event')
+            throw new Error('Unhandled event.')
         }
-      } catch (error) {
-        return res.json({ error: 'webhook handler failed' })
+      } catch (err) {
+        console.log(err)
+        return res.json({ error: 'Webhook handler failed.' })
       }
     }
     res.send('Recived')
